@@ -9,39 +9,47 @@ export function EmptyCart() {
     </div>
   )
 }
-export function Cart({products}) {
+export function Cart({products, onAddProduct}) {
   return(
     <ul style={cartStyles}>
       <span style={tableStyles}>
-        <span style={cellStyles}>Product</span>
-        <span style={cellStyles}>Quantity</span>
-        <span style={cellStyles}>Price (€)</span>
+        <CartCell>Product</CartCell>
+        <CartCell>Quantity</CartCell>
+        <CartCell>Price (€)</CartCell>
+        <CartCell>Actions</CartCell>
       </span>
       {products.map(product => (
         <li style={tableStyles} key={product.id}>
-          <span style={productStyles}>{product.name}</span>
-          <span style={cellStyles}>1</span>
-          <span style={cellStyles}>{product.price}€</span>
+          <CartCell style={{fontWeight: 'bold'}}>
+            {product.name}
+          </CartCell>
+          <CartCell style={cellStyles}>
+            <span style={{margin: '0 10px'}}>{product.quantity}</span>
+            <button onClick={() => onAddProduct(product)}>+</button>
+          </CartCell>
+          <CartCell style={cellStyles}>{product.quantity * product.price}€</CartCell>
+          <CartCell style={cellStyles}>
+            <button>remove</button>
+          </CartCell>
         </li>
       ))}
     </ul>
   )
 }
+function CartCell({style, children}) {
+  return <span style={{...cellStyles, ...style}}>{children}</span>
+}
 
 const cartStyles = {
   padding: 30,
   margin: 0,
-  background: 'white'
+  background: 'white',
 }
 
 const tableStyles = {
   display: 'flex',
 }
 const cellStyles = {
-  flex: 1,
+  flex: 2,
   padding: '5px 0',
-}
-const productStyles = {
-  ...cellStyles,
-  fontWeight: 'bold'
 }

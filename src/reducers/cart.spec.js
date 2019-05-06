@@ -7,13 +7,25 @@ describe('reducers', () => {
       expect(cart(undefined, {})).toEqual(initialState)
     })
 
-    it('Should handle add an item to the cart', () => {
+    it('Should handle add an item to the cart when we don\'t have that product', () => {
       const product = {
         id: 0,
-        name: 'whatever'
+        name: 'whatever',
       }
-      const stateAfterDispatch = cart(undefined, {type: 'ADD_TO_CART', payload: {product}})
-      expect(stateAfterDispatch).toEqual([product])
+      const initialState = []
+      const stateAfterDispatch = cart(initialState, {type: 'ADD_TO_CART', payload: {product}})
+      expect(stateAfterDispatch).toEqual([{...product, quantity: 1}])
+    })
+
+    it('Should handle add an item to the cart when we already have that product', () => {
+      const product = {
+        id: 0,
+        name: 'whatever',
+      }
+      const firstElementInitialState = {...product, quantity: 1}
+      const initialState = [firstElementInitialState]
+      const stateAfterDispatch = cart(initialState, {type: 'ADD_TO_CART', payload: {product}})
+      expect(stateAfterDispatch).toEqual([{...product, quantity: 2}])
     })
 
     it('Should handle remove a product from the cart', () => {

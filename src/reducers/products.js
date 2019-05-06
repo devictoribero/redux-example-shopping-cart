@@ -1,5 +1,3 @@
-import {ADD_TO_CART, EMPTY_CART} from '../types'
-
 const initialState = [
   {
     id: '0',
@@ -9,18 +7,12 @@ const initialState = [
   },
   {
     id: '1',
-    type: 'TROUSERS',
-    name: 'Pantalón basico',
-    price: 35,
-  },
-  {
-    id: '2',
     type: 'GLOVES',
     name: 'Guantes de portero',
     price: 12
   },
   {
-    id: '3',
+    id: '2',
     type: 'GLOVES',
     name: 'Guantes de jardinero',
     price: 12

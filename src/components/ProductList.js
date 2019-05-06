@@ -31,7 +31,8 @@ const productStyles= {
   background: 'white',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  borderRadius: '5px'
 }
 const nameStyles = {
   fontSize: '20px',
@@ -48,5 +49,5 @@ const buttonStyles = {
   padding: '10px',
   fontWeight: 'bold',
   cursor: 'pointer',
-  
+
 }
