@@ -47,4 +47,6 @@ const buttonStyles = {
   borderRadius: '5px',
   padding: '10px',
   fontWeight: 'bold',
+  cursor: 'pointer',
+  
 }
