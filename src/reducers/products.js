@@ -1,3 +1,5 @@
+import {GET_PRODUCTS} from '../types'
+
 const initialState = [
   {
     id: '0',
@@ -21,6 +23,9 @@ const initialState = [
 
 export function products(state = initialState, action) {
   switch(action.type) {
+    case 'GET_PRODUCTS':
+      return state
+
     default:
       return state
   }

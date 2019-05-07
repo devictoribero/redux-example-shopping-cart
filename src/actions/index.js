@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART, EMPTY_CART} from '../types'
+import {ADD_TO_CART, REMOVE_FROM_CART, EMPTY_CART, GET_PRODUCTS} from '../types'
 
 export function addToCart(product) {
   return {
@@ -17,5 +17,15 @@ export function removeFromCart(product) {
 export function emptyCart() {
   return {
     type: EMPTY_CART
+  }
+}
+
+export function getProducts({page = 1, productType = 'ALL'}) {
+  return {
+    GET_PRODUCTS,
+    payload: {
+      page,
+      productType
+    }
   }
 }
