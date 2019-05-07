@@ -6,8 +6,8 @@ export function ProductList({products, onAddProduct}) {
       {products.map(product => {
         return(
           <li key={product.id} style={productStyles}>
-            <h1 style={nameStyles}>{product.name}</h1>
-            <span style={priceStyle}>{product.price}€</span>
+            <span style={nameStyles}>{product.name}</span>
+            <span>{product.price}€</span>
             <button onClick={() => onAddProduct(product)} style={buttonStyles}>
               Añadir
             </button>
@@ -19,7 +19,6 @@ export function ProductList({products, onAddProduct}) {
 }
 
 const productListStyles = {
-  display: 'flex',
   margin: 0,
   padding: 0
 }
@@ -30,24 +29,22 @@ const productStyles= {
   boxSizing: 'border-box',
   background: 'white',
   display: 'flex',
-  flexDirection: 'column',
   justifyContent: 'space-between',
-  borderRadius: '5px'
+  alignItems: 'baseline',
+  borderRadius: '5px',
 }
 const nameStyles = {
-  fontSize: '20px',
+  fontSize: '18px',
+  fontWeight: 'bold',
   margin: 0
-}
-const priceStyle = {
-  margin: '5px 0 20px 0'
 }
 const buttonStyles = {
   background: 'rgb(117, 206, 84)',
   color: 'rgb(37, 86, 19)',
   border: 'none',
   borderRadius: '5px',
-  padding: '10px',
+  padding: '5px 10px',
   fontWeight: 'bold',
   cursor: 'pointer',
-
+  display: 'block',
 }

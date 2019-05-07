@@ -7,8 +7,8 @@ import {CartContainer} from './containers/Cart'
 function App() {
   return (
     <div className="App">
-      <CartContainer/>
       <ProductListContainer/>
+      <CartContainer/>
     </div>
   );
 }
